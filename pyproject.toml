@@ -2,7 +2,7 @@
 name = "hamlette"
 version = "0.1.0"
 description = "Enriches Hamcrest with a fluent asserter and handy matchers for expressive, readable tests."
-license = { text = "MIT" }
+license = "MIT"
 readme = "README.md"
 keywords = ["hamcrest", "matcher", "assertions", "testing", "pytest"]
 authors = [
@@ -15,7 +15,6 @@ dependencies = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
