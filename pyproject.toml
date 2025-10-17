@@ -1,0 +1,29 @@
+[project]
+name = "hamlette"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Ovunc Cetin", email = "ovunc@altiuslabs.xyz" }
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pyhamcrest (>=2.1.0,<3.0.0)",
+    "pytest-sugar (>=1.1.1,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{ include = "hamlette", from = "src" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# Enable/override Pyright diagnostics
+[tool.pyright]
+reportWildcardImportFromLibrary = "none"
+
+[dependency-groups]
+dev = [
+    "pytest (>=8.4.2,<9.0.0)"
+]
