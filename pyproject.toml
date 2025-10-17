@@ -6,7 +6,7 @@ license = { text = "MIT" }
 readme = "README.md"
 keywords = ["hamcrest", "matcher", "assertions", "testing", "pytest"]
 authors = [
-    { name = "Ovunc Cetin", email = "ovunc@altiuslabs.xyz" }
+    { name = "Ovunc Cetin", email = "ovunccetin@gmail.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
