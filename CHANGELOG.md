@@ -1,16 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit
-guidelines.
+All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [v0.1.0](https://github.com/ovunccetin/hamlette/releases/tag/v0.1.0) (2025-10-20)
 
-## [0.1.0](https://github.com/ovunccetin/hamlette/releases/tag/v0.1.0) (2025-10-20)
+### Documentation
+
+- **(changelog)** Backfill v0.1.0 - ([9646f2a](https://github.com/ovunccetin/hamlette/commit/9646f2a1b011350f979ab611dc63f22bc4cbf4d1))
 
 ### Features
 
-- Add initial implementation of hamlette library with built-in Hamcrest matchers and fluent
-  assertions ([80301f6](https://github.com/ovunccetin/hamlette/commit/80301f6bb254b01caf17d8bdd443c1a24572c6e3))
+- Add initial implementation of hamlette library with built-in Hamcrest matchers and fluent assertions ([80301f6](https://github.com/ovunccetin/hamlette/commit/80301f6bb254b01caf17d8bdd443c1a24572c6e3))
 
 ### Miscellaneous Chores
 
