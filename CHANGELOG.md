@@ -7,7 +7,8 @@ All notable changes to this project will be documented in this file. See [conven
 
 ### Documentation
 
-- **(changelog)** Backfill v0.1.0 - ([9646f2a](https://github.com/ovunccetin/hamlette/commit/9646f2a1b011350f979ab611dc63f22bc4cbf4d1))
+- **(changelog)** Backfill v0.1.0 ([9646f2a](https://github.com/ovunccetin/hamlette/commit/9646f2a1b011350f979ab611dc63f22bc4cbf4d1))
+- **(changelog)** Update changelog ([c351a4b](https://github.com/ovunccetin/hamlette/commit/c351a4bbdbc6d716093254c9b28f1debc4470112))
 
 ### Features
 
