@@ -27,9 +27,48 @@ permissions:
 
 jobs:
   build:
-    name: build
-    uses: ovunccetin/hamlette/.github/workflows/build.yml@main
-    with:
-      ref: ${{ github.event.inputs.ref || github.event.release.tag_name || github.ref }}
-      python-version: ${{ github.event.inputs.python-version || '3.12' }}
-      verify-version: ${{ github.event.inputs.verify-version || true }}
+    name: Build Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.event.release.tag_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ github.event.inputs.python-version || '3.12' }}
+          cache: pip
+
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pipx install poetry
+
+      - name: Install dependencies (no root)
+        run: |
+          poetry config virtualenvs.create false
+          poetry install --no-interaction --no-ansi --no-root --without dev
+
+      - name: Verify version against release tag
+        if: ${{ github.event.inputs.verify-version || true }}
+        run: |
+          RELEASE_VERSION=${{ github.event.inputs.ref || github.event.release.tag_name }}
+          RELEASE_VERSION=${RELEASE_VERSION#v}
+
+          PACKAGE_VERSION=$(poetry version -s)
+          if [ "$RELEASE_VERSION" != "$PACKAGE_VERSION" ]; then
+            echo "Version mismatch: Release version is '$RELEASE_VERSION' but package version is '$PACKAGE_VERSION'"
+            exit 1
+          fi
+
+      - name: Build packages (sdist and wheel)
+        run: |
+          poetry build --no-interaction --no-ansi
+
+      - name: Upload dist artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/*
