@@ -10,7 +10,7 @@ on:
 
       verify-version:
         description: 'Verify that the package version matches the release tag.'
-        required: false
+        required: true
         type: boolean
 
       python-version:
@@ -59,7 +59,7 @@ jobs:
 
       # Verify if the package version matches the release tag (if enabled)
       - name: Verify version against release tag
-        if: ${{ github.event.inputs.verify-version == 'true' }}
+        if: ${{ github.event.inputs.verify-version != 'false' }}
         run: |
           RELEASE_VERSION=${{ github.event.inputs.ref || github.event.release.tag_name }}
           RELEASE_VERSION=${RELEASE_VERSION#v}
