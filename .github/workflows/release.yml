@@ -6,19 +6,16 @@ on:
       ref:
         description: 'The git ref to checkout (branch, tag, SHA). Defaults to the release tag or the default branch.'
         required: false
-        default: ${{ github.event.release.tag_name || github.ref }}
         type: string
 
       verify-version:
         description: 'Verify that the package version matches the release tag.'
         required: false
-        default: true
         type: boolean
 
       python-version:
         description: 'The Python version to set up. Defaults to 3.12.'
         required: false
-        default: '3.12'
         type: string
 
   release:
@@ -33,6 +30,6 @@ jobs:
     name: build
     uses: ovunccetin/hamlette/.github/workflows/build.yml@main
     with:
-      ref: ${{ github.event.inputs.ref }}
-      python-version: ${{ github.event.inputs.python-version }}
-      verify-version: ${{ github.event.inputs.verify-version }}
+      ref: ${{ github.event.inputs.ref || github.event.release.tag_name || github.ref }}
+      python-version: ${{ github.event.inputs.python-version || '3.12' }}
+      verify-version: ${{ github.event.inputs.verify-version || true }}
