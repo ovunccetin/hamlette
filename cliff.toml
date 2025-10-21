@@ -71,6 +71,7 @@ commit_parsers = [
     { message = "^chore\\(doc\\):", skip = true },
     { message = "^chore\\(gitcliff\\):", skip = true },
     { message = "^docs\\(changelog\\):", skip = true },
+    { message = "^ci\\(actions\\):", skip = true },
     # --- then the broad buckets ---
     { message = "^feat", group = "Features" },
     { message = "^fix", group = "Bug Fixes" },
