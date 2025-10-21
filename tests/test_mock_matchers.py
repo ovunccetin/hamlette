@@ -32,7 +32,7 @@ def test__not_called__should_match__if_the_mock_not_called(fn_never_called):
 
 def test__not_called__should_not_match__if_the_mock_was_called(fn_called_once, fn_called_twice):
     with pytest.raises(AssertionError) as exc_info:
-        assert that(fn_called_once) >> not_called()
+        assert that(fn_called_once) >> was_not_called()
 
     assert str(exc_info.value) == (
         f"Expected not to have been called, but <Mock name='fn_called_once' id='{id(fn_called_once)}'> was called <1> time"

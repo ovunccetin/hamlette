@@ -23,23 +23,18 @@ class WasNotCalled(BaseMockMatcher):
             .append_text(" time" if count == 1 else " times")
 
 
-def not_called() -> WasNotCalled:
+def was_not_called() -> WasNotCalled:
     """
     Matches if a Mock has not been called.
 
-    It has an alias: `was_not_called` for convenience.
+    It has an alias: `not_called` for convenience.
 
     Examples:
-        assert that(mock) >> not_called()
         assert that(mock) >> was_not_called()
     """
     return WasNotCalled()
 
 
-# Aliases
-was_not_called = not_called
-
 __all__ = [
-    "not_called",
     "was_not_called",
 ]
