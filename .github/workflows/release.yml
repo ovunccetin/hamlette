@@ -81,8 +81,8 @@ jobs:
         run: |
           if [[ "${{ github.event.inputs.ref || github.event.release.tag_name }}" =~ (pre|rc|dev|test) ]]; then
             echo "Publishing to TestPyPI..."
-            poetry publish -r testpypi -u __token__ -p $POETRY_PYPI_TOKEN_TESTPYPI --no-interaction --no-ansi dist/*
+            poetry publish -r testpypi -u __token__ -p $POETRY_PYPI_TOKEN_TESTPYPI --no-interaction --no-ansi
           else
             echo "Publishing to PyPI..."
-            poetry publish -u __token__ -p $POETRY_PYPI_TOKEN_PYPI --no-interaction --no-ansi dist/*
+            poetry publish -u __token__ -p $POETRY_PYPI_TOKEN_PYPI --no-interaction --no-ansi
           fi
