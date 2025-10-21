@@ -5,14 +5,14 @@ from hamcrest.core.description import Description
 from ._base import BaseMockMatcher
 
 
-class IsNeverCalled(BaseMockMatcher):
-    """Matcher that checks if a Mock has never been called."""
+class WasNotCalled(BaseMockMatcher):
+    """Matcher that checks if a Mock has not been called."""
 
     def _matches(self, item: Mock) -> bool:
         return item.call_count == 0
 
     def describe_to(self, description: Description) -> None:
-        description.append_text("to have never been called")
+        description.append_text("not to have been called")
 
     def describe_mismatch(self, item: Mock, mismatch_description: Description) -> None:
         count: int = item.call_count
@@ -23,26 +23,23 @@ class IsNeverCalled(BaseMockMatcher):
             .append_text(" time" if count == 1 else " times")
 
 
-def never_called() -> IsNeverCalled:
+def not_called() -> WasNotCalled:
     """
-    Matches if a Mock has never been called.
+    Matches if a Mock has not been called.
 
-    It has aliases like `not_called` and `was_never_called`.
+    It has an alias: `was_not_called` for convenience.
 
     Examples:
-        assert that(mock) >> never_called()
         assert that(mock) >> not_called()
-        assert that(mock) >> was_never_called()
+        assert that(mock) >> was_not_called()
     """
-    return IsNeverCalled()
+    return WasNotCalled()
 
 
 # Aliases
-not_called = never_called
-was_never_called = never_called
+was_not_called = not_called
 
 __all__ = [
-    "never_called",
-    "was_never_called",
     "not_called",
+    "was_not_called",
 ]
