@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     name: build
-    uses: /.github/workflows/build.yml
+    uses: ovunccetin/hamlette/.github/workflows/build.yml@main
     with:
       ref: ${{ github.event.release.tag_name || github.ref }}
       python-version: '3.12'
