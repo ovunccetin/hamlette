@@ -52,7 +52,7 @@ jobs:
           poetry install --no-interaction --no-ansi --no-root --without dev
 
       - name: Verify version against release tag
-        if: ${{ github.event.inputs.verify-version || true }}
+        if: ${{ github.event.inputs.verify-version == 'true' }}
         run: |
           RELEASE_VERSION=${{ github.event.inputs.ref || github.event.release.tag_name }}
           RELEASE_VERSION=${RELEASE_VERSION#v}
@@ -101,7 +101,7 @@ jobs:
         run: |
           if [[ "${{ github.event.release.tag_name }}" =~ (pre|rc|dev|test) ]]; then
             echo "Publishing to TestPyPI..."
-            poetry publish -r testpypi -u __token__ -p $POETRY_PYPI_TOKEN_TESTPYPI --no-interaction --no-ansi
+            tapoetry publish -r testpypi -u __token__ -p $POETRY_PYPI_TOKEN_TESTPYPI --no-interaction --no-ansi
           else
             echo "Publishing to PyPI..."
             poetry publish -u __token__ -p $POETRY_PYPI_TOKEN_PYPI --no-interaction
