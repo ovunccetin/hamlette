@@ -10,7 +10,8 @@ on:
 
       verify-version:
         description: 'Verify that the package version matches the release tag.'
-        required: true
+        required: false
+        default: true
         type: boolean
 
       python-version:
