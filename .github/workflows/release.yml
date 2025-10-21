@@ -71,6 +71,11 @@ jobs:
             exit 1
           fi
 
+      # Run tests
+      - name: Run tests
+        run: |
+          poetry run pytest
+
       # Build source distribution and the wheel package
       - name: Build packages (sdist and wheel)
         run: |
