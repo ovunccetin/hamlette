@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build:
+    name: build
     uses: /.github/workflows/build.yml
     with:
       ref: ${{ github.event.release.tag_name || github.ref }}
